@@ -1,25 +1,29 @@
-# Bridging Past and Future: Distribution-Aware Alignment for Time Series Forecasting
-PyTorch Implementation of TimeAlign.
+# Proposição de aprimoramento do framework plug-and-play *TimeAlign* através de exploração prática na mitigação de efeitos por divergência entre futuro e passado em confronto à abordagem da referência
 
-## 📰 News
+Exploração realista e de impactos do *TimeAlign*
 
-🚩 2026-01-26: TimeAlign has been accepted as ICLR 2026 Poster.
+## 🚩Proposta de Projeto
 
-🚩 2025-09-21: Initial upload to arXiv ([PDF](https://arxiv.org/pdf/2509.14181)).
+A previsão de séries temporais multivariadas sofre com a não-estacionariedade, caracterizada pela divergência estatística entre o comportamento passado e o horizonte futuro. O framework plug-and-play *TimeAlign* busca mitigar essas discrepâncias ao alinhar representações temporais sem alterar os modelos preditivos subjacentes, mas ainda apresenta limitações diante de mudanças abruptas de regime. Este trabalho propõe uma análise realista da performance do *TimeAlign* e um aprimoramento prático em seu mecanismo de alinhamento para reduzir os efeitos da divergência temporal.
 
-## 🌟 Overview
+A metodologia envolve experimentos comparativos controlados em *benchmarks* de séries temporais, confrontando a abordagem proposta com o *TimeAlign* original e baselines da literatura via MSE e MAE. Espera-se obter ganhos de acurácia e estabilidade, evidenciando o potencial da extensão em contextos gerais.
 
-TimeAlign is a lightweight, plug-and-play framework that bridges the distributional gap in time series forecasting by aligning past and future representations through a reconstruction-based alignment task. The implementation of alignment is located in `./layers/Alignment.py`.
+## 🌟 Visão Geral do Método Promovito
+
+*TimeAlign* é um *framework* leve e de mecanismo associável que busca conectar a diferença de distribuição em problemas de séries temporais, alinhando representações do passado (treino) e do futuro (teste) através de uma tarefa de alinhamento reconstrutivo. A implementação oficial desse alinhamento está localizada em `./layers/Alignment.py`.
+*(Seção adaptada da documentação oficial do [TimeAlign](https://github.com/TROUBADOUR000/TimeAlign))*
 
 ![](assets/pipeline.png)
 
-## 🛠 Prerequisites
+## 🛠 Pré-requisitos
 
 Ensure you are using Python 3.10.18 and install the necessary dependencies.
+*(Seção adaptada da documentação oficial do [TimeAlign](https://github.com/TROUBADOUR000/TimeAlign))*
 
-## 📊 Prepare Datastes
+## 📊 Preparação dos Datastes
 
-Begin by downloading the required datasets. All datasets are conveniently available at [iTransformer](https://drive.google.com/file/d/1l51QsKvQPcqILT3DwfjCgx8Dsg2rpjot/view?usp=drive_link). Create a separate folder named `./dataset` and neatly organize all the csv files as shown below:
+Comece fazendo o *download* das bases de dados tradicionais utilizadas no artigo referência e no início do atual projeto. Esses *datasets* estão disponíveis em [iTransformer](https://drive.google.com/file/d/1l51QsKvQPcqILT3DwfjCgx8Dsg2rpjot/view?usp=drive_link). Você deve criar uma pasta separada nomeada `./dataset` e organizar de forma ordenada todos, e apenas, os **arquivos csv** como mostrado a seguir:
+
 ```
 dataset
 └── electricity.csv
@@ -32,22 +36,26 @@ dataset
 └── solar_AL.txt
 ```
 
-## 💻 Training
+*(Seção adaptada da documentação oficial do [TimeAlign](https://github.com/TROUBADOUR000/TimeAlign))*
 
-All scripts are located in `./scripts`. For instance, to train a model using the ETTh1 dataset with an input length of 720, simply run:
+## 💻 Treinamento
+
+Os scripts estão localizados em `./scripts`. Para treinar um modelo com uma base, simplesmente rode:
 
 ```shell
-bash ./scripts/ETTh1.sh
+bash ./scripts/nome_dataset.sh
 ```
 
-After training:
+Depois do treinamento:
 
-- Your trained model will be safely stored in `./checkpoints`.
-- Numerical results in .npy format can be found in `./results`.
-- A comprehensive summary of quantitative metrics is accessible in `./result.txt`.
+- O modelo treinado estará armazenado em `./checkpoints`.
+- Resultados numéricos no formato .npy ficarão em `./results`.
+- Um sumário de resumo compreensível estará salvo em `./result.txt`.
 
-## 📚 Citation
-If you find this repo useful, please consider citing our paper as follows:
+## 📚 Citação
+
+Citação do artigo referência base para o projeto atual:
+
 ```bibtex
 @article{hu2025bridging,
   title={Bridging Past and Future: Distribution-Aware Alignment for Time Series Forecasting},
@@ -57,13 +65,18 @@ If you find this repo useful, please consider citing our paper as follows:
 }
 ```
 
-## 🙏 Acknowledgement
-Special thanks to the following repositories for their invaluable code and datasets:
+## 🙏 Agradecimentos
 
-- [Time-Series-Library](https://github.com/thuml/Time-Series-Library)
-- [iTransformer](https://github.com/thuml/iTransformer)
-- [DLinear](https://github.com/cure-lab/LTSF-Linear)
-- [PatchTST](https://github.com/yuqinie98/PatchTST)
+## 📩 Contato
 
-## 📩 Contact
-If you have any questions, please contact [huyf0122@gmail.com](huyf0122@gmail.com) or submit an issue.
+#### 👥 Equipe
+
+| **Nome Integrante**             | **login CIn** |
+| :------------------------------------ | :-----------------: |
+| Felipe Almeida Albuquerque de Holanda | ***faah*** |
+| Guilherme Galindo Zloccowick          |  ***ggz***  |
+| Kaynan Roberth Torres Silva           | ***krts*** |
+
+#### 📝 E-Mail
+
+***{faah, ggz, krts}*@cin.ufpe.br**
