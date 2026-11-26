@@ -36,8 +36,12 @@ df = df.ffill().bfill()
 # Formata no padrão exato esperado pelo Dataset_Custom do TimeAlign
 df.index.name = "date"
 df.reset_index(inplace=True)
+
+# Remove o fuso horário da coluna date
+df["date"] = pd.to_datetime(df["date"], utc=True).dt.strftime("%Y-%m-%d %H:%M:%S")
+
+
 df.to_csv(caminho_csv, index=False)
 
 print(f"CSV gerado com sucesso! Shape: {df.shape}")
-print(f"Período: {df['date'].min()} até {df['date'].max()}")
 print(df.head(3))
