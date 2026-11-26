@@ -8,7 +8,7 @@ A previsão de séries temporais multivariadas sofre com a não-estacionariedade
 
 A metodologia envolve experimentos comparativos controlados em *benchmarks* de séries temporais, confrontando a abordagem proposta com o *TimeAlign* original e baselines da literatura via MSE e MAE. Espera-se obter ganhos de acurácia e estabilidade, evidenciando o potencial da extensão em contextos gerais.
 
-## 🌟 Visão Geral do Método Promovito
+## 🌟 Visão Geral do Método Promovido
 
 *TimeAlign* é um *framework* leve e de mecanismo associável que busca conectar a diferença de distribuição em problemas de séries temporais, alinhando representações do passado (treino) e do futuro (teste) através de uma tarefa de alinhamento reconstrutivo. A implementação oficial desse alinhamento está localizada em `./layers/Alignment.py`.
 *(Seção adaptada da documentação oficial do [TimeAlign](https://github.com/TROUBADOUR000/TimeAlign))*
@@ -20,7 +20,7 @@ A metodologia envolve experimentos comparativos controlados em *benchmarks* de s
 Ensure you are using Python 3.10.18 and install the necessary dependencies.
 *(Seção adaptada da documentação oficial do [TimeAlign](https://github.com/TROUBADOUR000/TimeAlign))*
 
-## 📊 Preparação dos Datastes
+## ⬅️📊 Preparação dos Datasets Básicos
 
 Comece fazendo o *download* das bases de dados tradicionais utilizadas no artigo referência e no início do atual projeto. Esses *datasets* estão disponíveis em [iTransformer](https://drive.google.com/file/d/1l51QsKvQPcqILT3DwfjCgx8Dsg2rpjot/view?usp=drive_link). Você deve criar uma pasta separada nomeada `./dataset` e organizar de forma ordenada todos, e apenas, os **arquivos csv** como mostrado a seguir:
 
@@ -37,6 +37,19 @@ dataset
 ```
 
 *(Seção adaptada da documentação oficial do [TimeAlign](https://github.com/TROUBADOUR000/TimeAlign))*
+
+## 🛒📊 Preparação dos Datasets Novos
+
+#### 1️⃣ Pedestrian Drift Counts
+
+Base de dados que relata a contagem de pedestres registrados em ruas diferentes da cidade de Melbourne City. Os dados indicam registros desde 2009, mas é feito um corte de 2016 a 2021 para permitir a exploração com uma quantidade razoável de dados, presença de *concept drift* clara e significativa e trata de acontecimentos do mundo real. O *dataset* deve ser baixado no site [forecasting](https://forecastingdata.org) e precisa de um tratamento antes de aplicado, que será executado a partir do arquivo já presente no repositório.
+
+- Após baixar o arquivo da série temporal e extraí-lo, mova o arquivo (atualmente nomeado *<u>pedestrian_counts_dataset.tsf</u>*) para a mesma pasta  `./dataset` e;
+- Com o arquivo localizado, na raiz do projeto, execute o comando no terminal  `python converte_tsf.py`, para que o arquivo seja corretamente convertido em .csv nos intervalos e colunas corretos.
+
+*Obs: Após isso, o arquivo .tsf pode ser removido do projeto*
+
+
 
 ## 💻 Treinamento
 
