@@ -49,7 +49,16 @@ Base de dados que relata a contagem de pedestres registrados em ruas diferentes 
 
 *Obs: Após isso, o arquivo .tsf pode ser removido do projeto*
 
+#### 2️⃣ EPEX-Belgium
+A base EPEX-Belgium reúne registros horários de 9 de janeiro de 2011 a 31 de dezembro de 2016. Cada linha corresponde a uma hora e contém o preço da eletricidade no mercado belga e as previsões de demanda e de geração elétrica na França. Neste projeto, usamos o período completo porque ele inclui uma mudança real no mercado: entre setembro e dezembro de 2016, a redução da oferta de energia nuclear na Bélgica e na França contribuiu para que preços elevados se tornassem mais frequentes. O *dataset* está disponível no [Zenodo](https://zenodo.org/records/4624805).
 
+Para baixar a base e colocá-la no projeto:
+
+1. Acesse a página do dataset no Zenodo. Na seção Files, procure o arquivo *<u>BE.csv</u>* e clique em **Download**. A sigla BE identifica a Bélgica, se preferir, use o link direto para baixar o BE.csv.
+2. Abra a pasta do projeto no seu computador. Na mesma pasta em que está o arquivo run.py, localize a pasta `./dataset`. Caso ela ainda não exista, crie uma pasta com esse nome, no mesmo local em que está o arquivo `run.py`.
+3. Mova o arquivo baixado para dentro de dataset, mantendo o nome BE.csv. Ao final, o caminho deve ser `./dataset/BE.csv`.
+
+*Obs.: A base já vem em formato CSV. Para concluir o download, basta colocar o arquivo na pasta indicada. O script converte_tsf.py é usado apenas para a base de pedestres.*
 
 ## 💻 Treinamento
 
